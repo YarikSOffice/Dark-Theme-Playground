@@ -1,44 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent" android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center"
         tools:context=".MainActivity">
 
     <FrameLayout
             android:id="@+id/container"
-            android:layout_width="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"/>
 
     <TextView
+            android:id="@+id/title"
+            app:layout_constraintVertical_chainStyle="packed"
             style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="wrap_content"
             android:text="@string/hi_there"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/always_dark_activity"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             android:textColor="?attr/colorPrimary"
             android:layout_height="wrap_content"/>
+
     <Button
             android:id="@+id/always_dark_activity"
             android:layout_marginTop="16dp"
             android:layout_width="wrap_content"
             android:minWidth="@dimen/min_button_width"
+            app:layout_constraintBottom_toTopOf="@id/force_dark_activity"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             android:text="@string/activity_always_dark_title"
             android:layout_height="wrap_content"/>
 
     <Button
             android:id="@+id/force_dark_activity"
             android:layout_width="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/ignore_override_force_dark_activity"
             android:minWidth="@dimen/min_button_width"
+            app:layout_constraintTop_toBottomOf="@id/always_dark_activity"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             android:text="@string/activity_force_dark_title"
             android:layout_height="wrap_content"/>
 
     <Button
             android:id="@+id/ignore_override_force_dark_activity"
             android:layout_width="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/force_dark_activity"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             android:minWidth="@dimen/min_button_width"
             android:text="@string/activity_ignore_force_dark_title"
             android:layout_height="wrap_content"/>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
