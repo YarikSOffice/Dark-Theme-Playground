@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import example.com.darkthemeplayground.settings.SettingsFragment
 
 class MainActivity : AppCompatActivity() {
@@ -28,5 +29,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, IgnoreOverrideForceDarkOptionActivity::class.java))
         }
 
+    }
+
+    override fun recreate() {
+        super.recreate()
+        Toast.makeText(this, "Recreated", Toast.LENGTH_LONG).show()
     }
 }
